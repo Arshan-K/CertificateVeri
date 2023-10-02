@@ -6,6 +6,8 @@ const mysql = require('mysql2');
 const cors = require('cors');
 
 require("dotenv").config();
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 // const connection = mysql.createConnection({
 //     host: "db4free.net",
