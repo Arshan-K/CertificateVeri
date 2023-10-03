@@ -44,39 +44,7 @@ app.get('/favicon.ico', (req, res) => {
 
 app.get('/getData', (req, res) => {
     const Reference_Number = req.query.rid;
-    // const result = { Certificate_Number: '', Name: '', Designation: '', Institute: '', Workshop_Organiser: '', Workshop_Name: '', Workshop_Date: '', Profile_Photo: '' };
-
-    // if (Reference_Number) {
-    //     fs.readFile('public/data.csv', 'utf8', (err, data) => {
-    //         if (err) {
-    //             console.error(err);
-    //             res.status(500).send('Internal Server Error');
-    //             alert("Please Check Reference ID ");
-    //             return;
-    //         }
-
-    //         const lines = data.split('\n');
-    //         for (const line of lines) {
-    //             const values = line.split(',');
-    //             if (values[0] === Reference_Number) {
-
-    //                 result.Profile_Photo = values[8];
-    //                 result.Certificate_Number = values[1];                           //data fetching from public/data.csv 
-    //                 result.Name = values[2];
-    //                 result.Designation = values[3];
-    //                 result.Institute = values[4];
-    //                 result.Workshop_Organiser = values[5];
-    //                 result.Workshop_Name = values[6];
-    //                 result.Workshop_Date = values[7];
-                    
-    //                 break;
-    //             }
-    //         }
-
-    //  if (Reference_Number) {
-    //     // Query the database to retrieve the data
-    //     const sql = 'SELECT * FROM data WHERE Reference_Number = ?';
-    //     connection.query(sql, [Reference_Number], (err, results) => {
+    
         if (Reference_Number) {
 
             const sql = 'SELECT * FROM data WHERE `COL 1` = ?';
@@ -121,7 +89,6 @@ app.get('/getData', (req, res) => {
 const myHTTP_PORT = process.env.HTTP_PORT  
 const MYSQL_PORT = process.env.DB_PORT  // Use port 3306 as a default for MySQL
 
-// Set up your HTTP server on the HTTP_PORT
 app.listen(myHTTP_PORT, () => {
     console.log(`HTTP Server is running on port ${myHTTP_PORT}`);
 });
