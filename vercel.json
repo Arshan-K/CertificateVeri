@@ -1,0 +1,9 @@
+{
+    "routes": [
+      {
+        "src": "/getData",
+        "dest": "public/App.js"
+      }
+    ]
+  }
+  
