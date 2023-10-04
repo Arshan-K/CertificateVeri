@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Verification</title>
+
+  
+    <style>
+        
+        .profile-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #certificateImage {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+        }
+
+        .profile-table {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .profile-table th {
+            text-align: right;
+            padding-right: 10px;
+        }
+
+        .profile-table td {
+            padding-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <h1>Certificate Details</h1>
+        <div class="panel-body inf-content">
+            <div class="row">
+                <div class="col-md-3 text-center">
+                    <img id="certificateImage" alt="Certificate Image" title="" />
+                </div>
+                <div class="col-md-9">
+                    <strong>Information</strong><br>
+                    <div class="table-responsive">
+                        <table class="profile-table">
+                            <tbody>
+                                <tr>
+                                    <td><strong>Certificate number</strong></td>
+                                    <td class="text-primary" id="Certificate_Number"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Name</strong></td>
+                                    <td class="text-primary" id="Name"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Designation</strong></td>
+                                    <td class="text-primary" id="Designation"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Institute</strong></td>
+                                    <td class="text-primary" id="Institute"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Workshop Organiser</strong></td>
+                                    <td class="text-primary" id="Workshop_Organiser"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Workshop Name</strong></td>
+                                    <td class="text-primary" id="Workshop_Name"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Workshop Date</strong></td>
+                                    <td class="text-primary" id="Workshop_Date"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Profile Photo</strong></td>
+                                    <td class="text-primary" id="Profile_Photo"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../server/App.js"></script>
+
+
+    <script>
+        const Reference_Number = ['S6MY9FuQsf', 'tWXUrth0XK', 'wD8HD0Qxm0']; 
+    
+        Reference_Number.forEach(Reference_Number => {
+            
+            fetch(`http://localhost:8080/getData?rid=${Reference_Number}`)
+
+           
+                .then(response => response.json())
+                .then(results => {
+
+                    console.log(results);
+
+const resultsContainer = document.querySelector('.results-container');
+const resultDiv = document.createElement('div');
+
+resultDiv.innerHTML = 
+                document.getElementById('Certificate_Number').textContent = results.Certificate_Number;
+                document.getElementById('Name').textContent = results.Name;
+                document.getElementById('Designation').textContent = results.Designation;
+                document.getElementById('Institute').textContent = results.Institute;
+                document.getElementById('Workshop_Organiser').textContent = results.Workshop_Organiser;
+                document.getElementById('Workshop_Name').textContent = results.Workshop_Name;
+                document.getElementById('Workshop_Date').textContent = results.Workshop_Date;
+            })
+.catch(error => console.error(error));
+});
+    </script>
+    
+</body>
+</html>
+
+
