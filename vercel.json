@@ -2,7 +2,7 @@
     "routes": [
       {
         "src": "/getData",
-        "dest": "public/App.js"
+        "dest": "server/index.js"
       }
     ]
   }
