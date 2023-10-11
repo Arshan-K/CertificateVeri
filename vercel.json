@@ -1,9 +1,0 @@
-{
-    "routes": [
-      {
-        "src": "/getData",
-        "dest": "server/index.js"
-      }
-    ]
-  }
-  
